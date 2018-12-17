@@ -6,6 +6,7 @@
 	<meta name="author" content="Emmanuel TUYISHIMIRE">
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/signin.css">
 </head>
 <body>
      <header>
@@ -14,8 +15,8 @@
                  <h1>Questioner</h1>
              </div>
            <nav>
-                <button class="login">Login</button>
-                <button class="register">Register</button>
+                <button type="button" id="login">Login</button>
+                <button type="button" class="register">Register</button>
            </nav>
          </div>
     </header>
@@ -29,14 +30,33 @@
 
      </div>
  </section>
+<!-- Sign In Modal Section -->
+ <div class="bg-modal">
+	<div class="modal-contents">
 
+		<div class="close">+</div>
 
+		<form action="">
+            <h1>Sign In</h1>
+			<input type="text" placeholder="Email">
+			<input type="email" placeholder="Password">
+			<a href="#" class="button">Sign In</a>
+        </form>
+        <div class="link">
+        <a href="#">Forget Password</a><span>
+                    New to Questioner</span><a href="#">Sign Up</a>
+        </div>
+     
+	</div>
+</div>
+
+<!-- End of Sign In Modal Section-->
 
 
 	<footer>
             <p>Questioner Copyright &copy; 2018</p>
     </footer>
 
-
+    <script type="text/javascript"src="../js/signin.js"></script>
 </body>
 </html>
