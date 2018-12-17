@@ -37,12 +37,12 @@ header nav{
 	float: right;
 	margin-top: 10px;
 }
-.login{
+#login{
   background-color: white;
   color: blue;
   border: 1px solid blue;
   border-radius: 4px;
-  font-size: 28px;
+  font-size: 24px;
   padding-left: 1em;
   padding-right: 1em;
   margin-right: 10px;
@@ -53,7 +53,7 @@ header nav{
     border: 1px solid blue;
     border-radius: 4px;
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     padding-left: 1em;
     padding-right: 1em;
 }
