@@ -63,3 +63,23 @@ input {
 	font-style: bold;
 	text-align: center;
 }
+.signin-style{
+	background: url('../images/meetupback.jpg');
+	padding-top: 20px;
+	padding-left: 20px;
+	margin-top: 1em;
+    margin-bottom: 1em;
+    min-height: 560px;
+
+}
+.content {
+	height: 400px;
+	width: 600px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+	margin-top: 1em;
+	margin-left: 25%;
+}
