@@ -1,5 +1,5 @@
 
-.bg-modal {
+.bg-modal2 {
 	background-color: rgba(0, 0, 0, 0.8);
 	width: 100%;
 	height: 100%;
@@ -10,7 +10,7 @@
 	align-items: center;
 }
 
-.modal-contents {
+.modal-contents2 {
 	height: 400px;
 	width: 600px;
 	background-color: white;
@@ -29,7 +29,7 @@ input {
 	border: 1px solid gray;
 }
 
-.close {
+.close2 {
 	position: absolute;
 	top: 0;
 	right: 10px;
@@ -38,7 +38,7 @@ input {
 	transform: rotate(45deg);
 	cursor: pointer;
 }
-.close :hover {
+.close2 :hover {
     color: #666;
 }
 .button {
@@ -63,7 +63,7 @@ input {
 	font-style: bold;
 	text-align: center;
 }
-.signin-style{
+.signup-style{
 	background: url('../images/meetupback.jpg');
 	padding-top: 20px;
 	padding-left: 20px;
@@ -72,7 +72,7 @@ input {
     min-height: 560px;
 
 }
-.content {
+.contents {
 	height: 400px;
 	width: 600px;
 	background-color: white;

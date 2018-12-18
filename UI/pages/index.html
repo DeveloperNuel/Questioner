@@ -7,6 +7,7 @@
     <title>Questioner</title>
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/signin.css">
+    <link rel="stylesheet" type="text/css" href="../css/signup.css">
 </head>
 <body>
      <header>
@@ -16,7 +17,7 @@
              </div>
            <nav>
                 <button type="button" id="login">Login</button>
-                <button type="button" class="register">Register</button>
+                <button type="button" id="register" onclick="document.getElementById('id01').style.display='block'">Register</button>
            </nav>
          </div>
     </header>
@@ -26,8 +27,10 @@
              <h1><span> Croud-source questions</span> <span>for meetup</span> </h1>
                  <p>Questioner​​ helps the meetup organizer prioritize
                     questions to be answered. <span> Other users can vote on asked questions</span></p>
+                    
+                    <a href="#" class="button">View Upcoming Meetups</a>
          </div>
-
+         
      </div>
  </section>
 <!-- Sign In Modal Section -->
@@ -44,7 +47,7 @@
         </form>
         <div class="link">
         <a href="#">Forget Password</a><span>
-                    New to Questioner</span><a href="#">Sign Up</a>
+                    New to Questioner</span><a href="./signup.html" >Sign Up</a>
         </div>
      
 	</div>
@@ -52,11 +55,35 @@
 
 <!-- End of Sign In Modal Section-->
 
+<!--Start of Sign Up MOdel Section-->
+<section>
+        <div id="id01"class="bg-modal2">
+            <div class="modal-contents2">
 
+                <div class="close2">+</div>
+
+                <form action="">
+                    <h1>Sign Up</h1>
+                    <input type="text" placeholder="FirstName">
+                    <input type="email" placeholder="SecondName">
+                    <input type="text" placeholder="Email">
+                    <input type="email" placeholder="PhoneNumber">
+                    <input type="email" placeholder="Password">
+                    <a href="#" class="button">Sign Up</a>
+                </form>
+                <div class="link">
+                        Already Have Account?</span><a href="#" >Sign In</a>
+                </div>
+             
+            </div>
+        </div>
+    </section> 
+<!--End of Sign Up MOdel Section-->
 	<footer>
             <p>Questioner Copyright &copy; 2018</p>
     </footer>
-
+    <script type="text/javascript" src="../js/signup.js"></script>
     <script type="text/javascript"src="../js/signin.js"></script>
+   
 </body>
 </html>
