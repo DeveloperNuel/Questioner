@@ -1,0 +1,87 @@
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 80%;
+    overflow: auto;
+    margin-top: 1em;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  .sidebar img{
+    width: 50%;
+    height: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  nav img{
+      width: 40px;
+      height: 40px;
+  }
+
+  .meet{
+      float: right;
+      width: 70%;
+      height: 80%;
+     
+  }
+  .meet img{
+    height: 10%;
+    width: 40%;
+    padding-left: 80px;
+  }
+  .meet h1{
+    padding-left: 80px;
+  }
+  .meet a{
+   
+  }
+  .comment{
+    float: right;
+    width: 70%;
+    height: 80%;
+  }
+  .comment img{
+    padding-left: 80px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
