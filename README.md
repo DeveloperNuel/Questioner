@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Gentle-code/Questioner.svg?branch=master)](https://travis-ci.org/Gentle-code/Questioner)
+[![Coverage Status](https://coveralls.io/repos/github/Gentle-code/Questioner/badge.svg?branch=master)](https://coveralls.io/github/Gentle-code/Questioner?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c4141e25fcf8f552ffee/maintainability)](https://codeclimate.com/github/Gentle-code/Questioner/maintainability)
 # Questioner
 Crowd-source questions for a meetup. ​ Questioner​​ helps the meetup organizer prioritize questions to be answered. Other users can vote on asked questions and they bubble to the top or bottom of the log.
 
