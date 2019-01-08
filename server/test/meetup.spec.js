@@ -216,32 +216,33 @@ describe('Questioner Server', () => {
       });
     });
 
- // test get question by Id
-   describe('GET /question/:id', () => {
-     it('should respond with 200 and single question', (done) => {
-     chai.request(app)
-         .get('/api/v1/questions/1')
-         .set('Accept', 'application/json')
-         .expect('Content-Type', /json/)
-         .expect(200)
-         .end((err) => {
-           if (err) return done(err);
-           return done();
-         });
-     });
-     it('should respond with 404 and message question not found', (done) => {
-       chai.request(app)
-         .get('/api/v1/questions/4')
-         .set('Accept', 'application/json')
-         .expect('Content-Type', /json/)
-         .expect(404)
-         .expect((res) => {
-           expect(res.body).toEqual({ status: 404, error: 'question not found' });
-         })
-         .end((err) => {
-           if (err) return done(err);
-           return done();
-         });
-     });
+    // test get question by Id
+    describe('GET /question/:id', () => {
+      it('should respond with 200 and single question', (done) => {
+        chai.request(app)
+          .get('/api/v1/questions/1')
+          .set('Accept', 'application/json')
+          .expect('Content-Type', /json/)
+          .expect(200)
+          .end((err) => {
+            if (err) return done(err);
+            return done();
+          });
+      });
+      it('should respond with 404 and message question not found', (done) => {
+        chai.request(app)
+          .get('/api/v1/questions/4')
+          .set('Accept', 'application/json')
+          .expect('Content-Type', /json/)
+          .expect(404)
+          .expect((res) => {
+            expect(res.body).toEqual({ status: 404, error: 'question not found' });
+          })
+          .end((err) => {
+            if (err) return done(err);
+            return done();
+          });
+      });
+    });
   });
 });
