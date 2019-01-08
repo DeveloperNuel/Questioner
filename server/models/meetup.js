@@ -6,7 +6,7 @@ const meetups = [
     location: 'Telecom House',
     happeningOn: '02/03/2019',
     images: 'url',
-    Tags: ['Newbies', 'Programmer', 'Learning'],
+    tags: ['Newbies', 'Programmer', 'Learning'],
   },
 ];
 export default meetups;
