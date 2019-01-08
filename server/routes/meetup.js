@@ -12,7 +12,7 @@ router.get('/', meetupController.getAllMeetup);
 router.get('/:id', meetupController.getSingle);
 
 // Fetch all ​Upcoming​​ ​Meetup​​ records.
-// router.get('/meetups/upcomming', meetupController.getUpcomming);
+// router.get('/upcomming', meetupController.getUpcomming);
 
 
 export default router;
