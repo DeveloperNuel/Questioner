@@ -1,10 +1,10 @@
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 import User from '../models/user';
 
 
 class UserController {
   static createUser(req, res) {
-    const id = uuid;
+    const id = uuid();
     const registered = new Date();
     const {
       firstname, lastname, email, phoneNumber, username, password,
