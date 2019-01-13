@@ -71,4 +71,5 @@ class MeetupController {
   }
 }
 
+
 export default MeetupController;
