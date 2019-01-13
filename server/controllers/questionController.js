@@ -36,6 +36,21 @@ class QuestionController {
       error: 'question not found',
     });
   }
+
+  static downVote(req, res) {
+    const question = questions.find(x => x.id === parseInt(req.params.id, 10));
+    if (question) {
+      question.votes -= 1;
+      return res.status(200).send({
+        status: 200,
+        data: [question],
+      });
+    }
+    return res.status(404).send({
+      status: 404,
+      error: 'question not found',
+    });
+  }
 }
 
 export default QuestionController;

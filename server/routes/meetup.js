@@ -18,7 +18,7 @@ router.get('/:id', meetupController.getSingle);
 router.post('/questions', questionController.createQuestion);
 // router.get('/question/:id', questionController.getSingleQuestion);
 router.patch('/question/:id/upvote', questionController.upVote);
-// router.patch('/question/:id/downvote', questionController.downVote);
+router.patch('/question/:id/downvote', questionController.downVote);
 
 
 export default router;
