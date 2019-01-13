@@ -9,40 +9,30 @@ chai.use(chaiHttp);
 describe('Questioner Server', () => {
 // Post user sign-in
   describe('POST /auth/sign-in', () => {
-    it('should respond with status code 200', (done) => {
+    it('should respond with status code 200', () => {
       chai.request(app)
         .post('/api/v1/auth/sign-in')
         .send({
           email: 'egentle05@gmail.com',
           password: 'emma',
         })
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .expect((res) => {
-          expect(res.body).toEqual({ status: 200, message: 'authenticated' });
-        })
-        .end((err) => {
-          if (err) return done(err);
-          return done();
+        .then((res) => {
+          expect(res).to.have.status(200);
+          expect(res.body.data).to.be.an('array');
+          expect(res.body.data[0]).to.be.an('object');
         });
     });
-    it('should respond with 401 and message authentication failed', (done) => {
+    it('should respond with 401 and message authentication failed', () => {
       chai.request(app)
         .post('/api/v1/auth/sign-in')
         .send({
           email: 'egentle05@gmail.com',
           password: 'work',
         })
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(401)
-        .expect((res) => {
-          expect(res.body).toEqual({ status: 401, error: 'authentication failed' });
-        })
-        .end((err) => {
-          if (err) return done(err);
-          return done();
+        .then((res) => {
+          expect(res).to.have.status(401);
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.be.an('object');
         });
     });
   });

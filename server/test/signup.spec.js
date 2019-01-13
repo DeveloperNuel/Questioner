@@ -1,7 +1,7 @@
 import chaiHttp from 'chai-http';
 import chai, { expect } from 'chai';
 import { describe, it } from 'mocha';
-import uuid from 'uuid';
+import uuid from 'uuid/v4';
 import app from '../app';
 
 chai.use(chaiHttp);
@@ -9,40 +9,30 @@ chai.use(chaiHttp);
 // test for post sign-up
 describe('POST /auth/sign-up', () => {
   const user = {
-    id: uuid,
+    id: uuid(),
     email: 'test@gmail.com',
     username: 'test',
     password: 'test',
     registered: Date.now(),
   };
-  it('should respond with status code 201', (done) => {
+  it('should respond with status code 201', () => {
     chai.request(app)
       .post('/api/v1/auth/sign-up')
       .send(user)
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(201)
-      .expect((res) => {
-        expect(res.body).toEqual({ status: 201, data: [user] });
-      })
-      .end((err) => {
-        if (err) return done(err);
-        return done();
+      .then((res) => {
+        expect(res).to.have.status(201);
+        expect(res.body).to.have.property('status').eql(201);
+        expect(res.body).to.be.an('object');
       });
   });
-  it('should respond with 409 and message user already exists', (done) => {
+  it('should respond with 409 and message user already exists', () => {
     chai.request(app)
       .post('/api/v1/auth/sign-up')
       .send(user)
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(409)
-      .expect((res) => {
-        expect(res.body).toEqual({ status: 409, error: 'user already exists' });
-      })
-      .end((err) => {
-        if (err) return done(err);
-        return done();
+      .then((res) => {
+        expect(res).to.have.status(409);
+        expect(res.body).to.have.property('error');
+        expect(res.body).to.be.an('object');
       });
   });
 });
