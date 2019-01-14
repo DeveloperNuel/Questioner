@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import questions from '../models/meetup';
+import { questions } from '../models/meetup';
 
 class QuestionController {
   static createQuestion(req, res) {
@@ -10,7 +10,7 @@ class QuestionController {
       meetup: 2,
       title: req.body.title,
       body: req.body.body,
-      vote: 0,
+      votes: 0,
     };
     if (newQuestion.title && newQuestion.body) {
       questions.push(newQuestion);

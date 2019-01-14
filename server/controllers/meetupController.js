@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import Meetup from '../models/meetup';
+import { meetups } from '../models/meetup';
 
 
 class MeetupController {
@@ -12,10 +12,11 @@ class MeetupController {
     const newMeetup = {
       id, createdOn, ...req.body,
     };
-    console.log(newMeetup);
-    const findTitle = Meetup.find(x => x.title === newMeetup.title);
+
+    const findTitle = meetups.find(x => x.title === newMeetup.title);
+    console.log(findTitle);
     if (!findTitle && id !== undefined) {
-      Meetup.push(newMeetup);
+      meetups.push(newMeetup);
       return res.status(201).send({
         status: 201,
         data: [newMeetup],
@@ -25,10 +26,10 @@ class MeetupController {
   }
 
   static getAllMeetup(req, res) {
-    if (Meetup.length > 0) {
+    if (meetups.length > 0) {
       return res.status(200).send({
         status: 200,
-        data: Meetup,
+        data: meetups,
       });
     }
     return res.status(404).send({
@@ -39,7 +40,7 @@ class MeetupController {
 
   static getSingle(req, res) {
     const { id } = req.params;
-    const meetupFound = Meetup.find(x => x.id.toString() === id);
+    const meetupFound = meetups.find(x => x.id.toString() === id);
     if (meetupFound) {
       return res.status(200).send({
         status: 200,
@@ -53,10 +54,10 @@ class MeetupController {
   }
 
   static getUpcoming(req, res) {
-    const today = Date.now();
+    const today = new Date();
     const upcomingMeetups = [];
 
-    Meetup.forEach((meetup) => {
+    meetups.forEach((meetup) => {
       const happeningOnDate = new Date(meetup.happeningOn);
       if (happeningOnDate.getTime() > today) {
         upcomingMeetups.push(meetup);

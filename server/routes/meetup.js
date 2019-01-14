@@ -2,7 +2,6 @@ import express from 'express';
 import meetupController from '../controllers/meetupController';
 import questionController from '../controllers/questionController';
 
-
 const router = express.Router();
 
 // Create meetup records

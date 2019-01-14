@@ -9,7 +9,7 @@ const meetups = [
     tags: ['Newbies', 'Programmer', 'Learning'],
   },
 ];
-const question = [{
+const questions = [{
   id: 21,
   createdOn: new Date(),
   createdBy: 34,
@@ -19,4 +19,4 @@ const question = [{
   votes: 0,
 }];
 
-module.export = { meetups, question };
+module.exports = { meetups, questions };
