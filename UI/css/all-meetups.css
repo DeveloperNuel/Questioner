@@ -1,0 +1,36 @@
+.view {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+#meetups {
+ width: 30%;
+}
+#meetups li {
+    list-style: none;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+    margin-left: 15%;
+  }
+#meetups a{
+    margin-left: 20%;
+    font-size: 18px;
+    border-radius: 4px;
+    color: black;
+}
+#meetups img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 750px;
+    margin: 0px 40%;
+}
+#trash{
+    color: red;
+    font-size: 24px;
+}

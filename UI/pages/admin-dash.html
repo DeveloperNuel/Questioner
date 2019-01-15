@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <meta name="author" content="Emmanuel TUYISHIMIRE">
+        <title>Questioner | Admin DashBoard</title>
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/admin.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div id="web-brand">
+                    <h1>Questioner</h1>
+                </div>
+              <nav>
+                   <a href="./view-all.html">All meetups</a>
+                   <a href="./admin-dash.html">Dashboard</a>
+                   <button type="button" id="logout" onclick="location.href='./index.html';">Log Out</button>
+                   
+              </nav>
+            </div>
+       </header>
+       <section>
+        <section>
+            <div class="container">
+                        <div class="content">
+                            
+                          <form action="">
+                               <h1>Add Meetup</h1>
+                                    <input type="text" placeholder="Title">
+                                    <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"></p>
+                                    <p><label for="file" >Upload Image</label></p>
+                                    <p><img id="output" width="200" /></p>
+                                    <textarea placeholder="Description"></textarea>
+                                    <input type="date" placeholder="">
+                                    <input type="text" placeholder="Tags">
+                                    <a href="#" class="button">Post</a>
+                            </form>
+                        </div>
+                    </div>
+        </section> 
+        <footer>
+                <p>Questioner Copyright &copy; 2018</p>
+        </footer>
+        <script type="text/javascript" src="../js/admin.js"></script>
+     </body>
+ </html>
