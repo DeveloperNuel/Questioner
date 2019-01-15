@@ -1,0 +1,59 @@
+.content {
+	height: 200px;
+	width: 600px;
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+	position: relative;
+	border-radius: 4px;
+	margin-top: 2.5em;
+	margin-left: 25%;
+}
+.content input{
+    width: 30%;
+}
+.content textarea{
+    width: 30%;
+}
+.content a{
+    background-color: blue;
+	border: 2px solid white;
+	border-radius: 8px;
+	text-decoration: none;
+	padding: 10px 28px;
+	color: white;
+	margin-top: 10px;
+	display: inline-block;
+	width: 15%;
+    margin-bottom: 1em;
+    font-size: 12px;
+
+}
+#meetup li {
+    list-style: none;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+    margin-left: 20%;
+  }
+  #meetup img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 0px 40%;
+}
+.question{
+    margin-top: 2.5em;
+	margin-left: 5%;
+    margin-bottom: 2em;
+}
+.question p{
+    color: black;
+    margin-left: 12em;
+}
+h2{
+    margin-left: 15em;
+}
+span{
+    text-align: center;
+}
