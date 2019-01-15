@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <meta name="author" content="Emmanuel TUYISHIMIRE">
+        <title>Questioner | UserdashBoard</title>
+        <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/usedash.css">
+        <link rel="stylesheet" type="text/css" href="../css/profile.css">
+        <link rel="stylesheet" type="text/css" href="../css/signin.css">
+    </head>
+    <body>
+        <header> 
+            <div class="container">
+                <div id="web-brand">
+                    <h1>Questioner</h1>
+                </div>
+              <nav>
+                   <button type="button" id="login" onclick="location.href='./index.html';">Log Out</button>
+              </nav>
+            </div>
+       </header>
+       <section>
+        <div class="container">
+           <div class="sidebar">
+            <img src="../images/profile.png">
+            <a class="active" href="#home">View Profile</a>
+            <a href="./view-all-meetups.html">View Meetups</a>
+            <a href="#">View question answered</a>
+            <a href="#">View question Asked</a>
+            <a href="./index.html">Log Out</a>
+           </div>
+           <div class="profile">
+            <h1>My Profile</h1> 
+            <img src="../images/profile.png">
+            <a href="#" class="lin">3 Question Asked </a><br>
+            <a href="#" class="lin">8 Question Answered </a><br>
+  
+            <table>
+                <tr>
+                <th>FirstName</th>
+                <td ondblclick="edit(this)"><input value="Emmanuel" disabled onblur="disable(this)"></td>
+                <th>SecondName</th>
+                <td ondblclick="edit(this)"><input value="TUYISHIMIRE" disabled onblur="disable(this)"></td>
+               </tr>
+               <tr>
+                   <th>UserName</th>
+                <td ondblclick="edit(this)"><input value="Gentlecode" disabled onblur="disable(this)"></td>
+                <th>Email</th>
+                <td ondblclick="edit(this)"><input value="egentle05@gmail.com" disabled onblur="disable(this)">
+                </td>
+               </tr>
+                </table>
+                <a href="#" class="button">Update</a>
+           </div>     
+          </div>
+       </section>
+       <script type="text/javascript" src="../js/profile.js"></script>
+    </body>
+</html>
