@@ -103,6 +103,6 @@ footer{
 	background-color: #222221;
 	position: fixed;
 	width: 100%;
-	text-align: center;
-    
+	bottom: 0%;
+	text-align: center;  
 }
