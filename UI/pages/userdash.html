@@ -6,6 +6,8 @@
         <title>Questioner | UserdashBoard</title>
         <link rel="stylesheet" type="text/css" href="../css/index.css">
         <link rel="stylesheet" type="text/css" href="../css/usedash.css">
+        <link rel="stylesheet" type="text/css" href="../css/profile.css">
+        <link rel="stylesheet" type="text/css" href="../css/signin.css">
     </head>
     <body>
         <header>
@@ -15,7 +17,6 @@
                 </div>
               <nav>
                    <button type="button" id="login" onclick="location.href='./index.html';">Log Out</button>
-                   <img src="../images/bellnotification.png">
               </nav>
             </div>
        </header>
@@ -23,35 +24,35 @@
         <div class="container">
            <div class="sidebar">
             <img src="../images/profile.png">
-            <a class="active" href="#home">View Profile</a>
-            <a href="#">View question you asked</a>
+            <a class="active" href="./profile.html">View Profile</a>
+            <a href="./view-all-meetups.html">View Meetups</a>
             <a href="#">View question Answered</a>
+            <a href="#">View question Asked</a>
             <a href="./index.html">Log Out</a>
            </div>
-           <div class="meet">
-               <h1>Kigali Design Meetup</h1>
-               <img src="../images/Design.jpg">
-               
-           </div>
-           <div class="comment">
-                <img src="../images/conversation.png"> 4 comment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                 Upvote[2] &nbsp;&nbsp; Downvote[1]
-            </div>
-            
-            <div class="meet">
-                    <h1>Progate Rwanda Meetup</h1>
-                    <img src="../images/Pro4th.png">
-                    
-                </div>
-            <div class="comment">
-             <img src="../images/conversation.png"> 6 comment &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                         Upvote[1] &nbsp;&nbsp; Downvote[1]<br>
-                         
-                         <a href="#">View More</a> 
-                </div>   
-               
+           <div class="profile">
+            <h1>My Profile</h1> 
+            <img src="../images/profile.png">
+            <a href="#" class="lin">3 Question Asked </a><br>
+            <a href="#" class="lin">8 Question Answered </a><br>
+  
+            <table>
+                <tr>
+                <th>FirstName</th>
+                <td ondblclick="edit(this)"><input value="Emmanuel" disabled onblur="disable(this)"></td>
+                <th>SecondName</th>
+                <td ondblclick="edit(this)"><input value="TUYISHIMIRE" disabled onblur="disable(this)"></td>
+               </tr>
+               <tr>
+                   <th>UserName</th>
+                <td ondblclick="edit(this)"><input value="Gentlecode" disabled onblur="disable(this)"></td>
+                <th>Email</th>
+                <td ondblclick="edit(this)"><input value="egentle05@gmail.com" disabled onblur="disable(this)">
+                </td>
+               </tr>
+                </table>
+                <a href="#" class="button">Update</a>
+           </div>     
           </div>
        </section> 
 

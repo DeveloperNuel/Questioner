@@ -1,0 +1,72 @@
+.view {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+#meetups {
+ width: 30%;
+}
+#meetups li {
+    list-style: none;
+    padding: 0px;
+    display: inline-block;
+    position: relative;
+    margin-left: 4em;
+  }
+#meetups a{
+    margin-left: 20%;
+    font-size: 18px;
+    border-radius: 4px;
+    color: black;
+}
+nav a.active {
+    background-color: rgb(28, 15, 211);
+    color: white;
+  }
+nav  a:link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+nav a:visited {
+    text-decoration: none;
+  }
+  
+nav a:hover {
+    background-color: rgb(87, 102, 236);
+    color: rgb(255, 255, 255);
+  }
+  
+nav a:active {
+    background-color: rgb(175, 178, 180);
+}
+
+#logout{
+    background-color: white;
+    color: blue;
+    border: 1px solid blue;
+    border-radius: 4px;
+    font-size: 18px;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-right: 10px;
+  }
+img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 370px;
+    height: 250px;
+    margin: 0px 30%;
+}
+#trash{
+    color: red;
+    font-size: 24px;
+}
