@@ -11,7 +11,7 @@
 }
 
 .modal-contents {
-	height: 400px;
+	height: 300px;
 	width: 600px;
 	background-color: white;
 	text-align: center;
@@ -73,11 +73,12 @@ input {
 
 }
 .content {
-	height: 400px;
+	height: 300px;
 	width: 600px;
 	background-color: white;
 	text-align: center;
 	padding: 20px;
+	padding-top: 30px;
 	position: relative;
 	border-radius: 4px;
 	margin-top: 1em;
