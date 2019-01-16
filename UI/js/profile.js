@@ -6,4 +6,3 @@ function edit(el) {
 function disable(el) {
   el.setAttribute('disabled', '');
 }
- 
