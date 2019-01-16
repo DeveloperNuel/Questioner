@@ -12,10 +12,10 @@ chai.use(chaiHttp);
 // Testing for Questioner Server
 describe('Questioner Server', () => {
   // test create a meetup
-  describe('POST /meetup', () => {
+  describe('POST /meetups', () => {
     const testData = {
       id: uuid(),
-      title: 'Progate Rwanda Meetup',
+      topic: 'Progate Rwanda Meetup',
       location: 'Kigali',
       happeningOn: '01/02/2019',
       images: 'www.images.com',
@@ -48,7 +48,7 @@ describe('Questioner Server', () => {
   describe('GET /meetups', () => {
     it('should respond with 200 and all meetups', () => {
       chai.request(app)
-        .get('/api/v1/meetup')
+        .get('/api/v1/meetups')
         .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body.data).to.be.an('array');
@@ -84,7 +84,7 @@ describe('Questioner Server', () => {
       createdOn: new Date(),
       createdBy: users.id,
       meetup: meetups.id,
-      title: 'How Do I Become the first in Class',
+      topic: 'How Do I Become the first in Class',
       body: 'You have to study very hard and collaborate with other classmate',
       votes: 0,
     };
