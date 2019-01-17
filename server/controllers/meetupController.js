@@ -1,62 +1,79 @@
 import Meetup from '../models/meetup';
+import validation from '../middlewares/validation';
 
-const MeetupController = {
-  createMeetup(req, res) {
+class MeetupController {
+  // eslint-disable-next-line consistent-return
+  static createMeetup(req, res) {
     // eslint-disable-next-line max-len
-    if (req.body.topic.length === 0) {
-      return res.status(400).json({
-        status: 400,
-        message: 'All Fields required',
-      });
-    }
-    const findTitle = Meetup.getTitle(req.body.topic);
-    if (findTitle) {
-      return res.status(400).json({
-        status: 400,
-        error: 'Duplicate Meetup',
-      });
-    }
-    const meetup = Meetup.createMeetup(req.body);
-    return res.status(201).json({
-      data: meetup,
+    const {
+      location, topic, images, tags, happeningOn,
+    } = req.body;
+
+    const { error } = validation({
+      location, topic, images, tags, happeningOn,
     });
-  },
-  getAllMeetup(req, res) {
+    if (error) {
+      res.status(400).json({ error: error.details[0].message });
+    } else {
+      const findTitle = Meetup.getTitle(req.body.topic);
+      if (findTitle) {
+        return res.status(400).json({
+          status: 400,
+          error: 'Duplicate Meetup',
+        });
+      }
+      const meetup = Meetup.createMeetup(req.body);
+      return res.status(201).json({
+        status: 201,
+        data: meetup,
+      });
+    }
+  }
+
+  static getAllMeetup(req, res) {
     const meetup = Meetup.getAllMeetup();
     if (meetup.length === 0) {
       return res.status(404).json({
-        message: 'Meetup not found',
+        status: 404,
+        message: 'Meetups not found',
       });
     }
     return res.status(200).json({
+      status: 200,
       message: ' All Meetups ',
       meetup: Meetup,
     });
-  },
-  getSingle(req, res) {
+  }
+
+  static getSingle(req, res) {
     const singleMeetup = Meetup.getSingleMeetup(req.params.id);
     if (!singleMeetup) {
       return res.status(404).json({
+        status: 404,
         message: 'Meetup not found',
       });
     }
     return res.status(200).json({
+      status: 200,
       meetup: singleMeetup,
     });
-  },
-  getUpcoming(req, res) {
+  }
+
+  static getUpcoming(req, res) {
     const upcoming = Meetup.upcomingMeetups();
     if (upcoming.length === 0 || upcoming === 'undefined') {
       return res.status(404).json({
+        status: 404,
         message: 'No upcoming meetup found',
       });
     }
     return res.status(200).json({
-      message: 'Upcomming meetups',
+      message: 'Upcoming meetups',
       meetups: upcoming,
     });
-  },
-  deleteMeetup(req, res) {
+  }
+
+  static deleteMeetup(req, res) {
     const meetup = Meetup.getSingleMeetup(req.params.id);
     if (!meetup) {
       return res.status(404).json({
@@ -69,8 +86,9 @@ const MeetupController = {
       meetup: del,
 
     });
-  },
-  respond(req, res) {
+  }
+
+  static respond(req, res) {
     const meetup = Meetup.getSingleMeetup(req.params.id);
     if (!meetup) {
       return res.status(404).json({
@@ -82,6 +100,8 @@ const MeetupController = {
       message: 'Response sent',
       response,
     });
-  },
-};
+  }
+}
+
+
 export default MeetupController;

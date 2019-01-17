@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import uuid from 'uuid/v4';
 
 class Meetup {
@@ -31,20 +32,20 @@ class Meetup {
     return this.meetups.find(x => x.id === id);
   }
 
+  // eslint-disable-next-line consistent-return
   getUpcoming() {
     const today = new Date();
     const upcomingMeetups = [];
-    Meetup.forEach((meetup) => {
-      const happeningOnDate = new Date(meetup.happeningOn);
-      if (happeningOnDate.getTime() > today) {
+    for (const meetup of this.meetups) {
+      if (new Date(meetup.happeningOn) > today) {
         upcomingMeetups.push(meetup);
       }
       return this.upcomingMeetups;
-    });
+    }
   }
 
   deleteMeetup(id) {
-    const meetup = this.getOneMeetup(id);
+    const meetup = this.getSingleMeetup(id);
     const index = this.meetups.indexOf(meetup);
     this.meetups.splice(index, 1);
     return {};

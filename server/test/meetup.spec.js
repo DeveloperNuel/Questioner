@@ -24,7 +24,7 @@ describe('Questioner Server', () => {
 
     it('should respond with status code 201 created', () => {
       chai.request(app)
-        .post('/api/v1/meetup')
+        .post('/api/v1/meetups')
         .send(testData)
         .then((res) => {
           expect(res).to.have.status(201);
@@ -35,7 +35,7 @@ describe('Questioner Server', () => {
     it('should respond with status code 400 not created', () => {
       testData.id = undefined;
       chai.request(app)
-        .post('/api/v1/meetup')
+        .post('/api/v1/meetups')
         .send(testData)
         .then((res) => {
           expect(res).to.have.status(400);
@@ -57,10 +57,10 @@ describe('Questioner Server', () => {
     });
   });
   // test for get single meetup by id
-  describe('GET /meetup/:id', () => {
+  describe('GET /meetups/:id', () => {
     it('should respond with 200 and single meetup', () => {
       chai.request(app)
-        .get('/api/v1/meetup/1')
+        .get('/api/v1/meetups/1')
         .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body.data).to.be.an('array');
@@ -69,7 +69,7 @@ describe('Questioner Server', () => {
     });
     it('should respond with 404 and message meetup not found', () => {
       chai.request(app)
-        .get('/api/v1/meetup/4')
+        .get('/api/v1/meetups/4')
         .then((res) => {
           expect(res).to.have.status(404);
           expect(res.body).to.have.property('error');
@@ -111,7 +111,7 @@ describe('Questioner Server', () => {
     });
 
     // test for patch question:id/upvote
-    describe('PATCH /question/:id/upvote', () => {
+    describe('PATCH /questions/:id/upvote', () => {
       it('should respond with 204', () => {
         chai.request(app)
           .patch('/api/v1/questions/1/upvote')
@@ -133,7 +133,7 @@ describe('Questioner Server', () => {
     });
 
     // test for patch question:id/downvote
-    describe('PATCH /question/:id/downvote', () => {
+    describe('PATCH /questions/:id/downvote', () => {
       it('should respond with status code 200', () => {
         chai.request(app)
           .patch('/api/v1/questions/1/downvote')
@@ -194,7 +194,7 @@ describe('Questioner Server', () => {
     });
 
     // test get question by Id
-    describe('GET /question/:id', () => {
+    describe('GET /questions/:id', () => {
       it('should respond with 200 and single question', () => {
         chai.request(app)
           .get('/api/v1/questions/1')

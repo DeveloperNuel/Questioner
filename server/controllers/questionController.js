@@ -1,54 +1,70 @@
-import uuid from 'uuid/v4';
+/* eslint-disable consistent-return */
 import questions from '../models/meetup';
+import validateQuest from '../middlewares/validation';
 
 class QuestionController {
   static createQuestion(req, res) {
-    const newQuestion = {
-      id: uuid(),
-      createdOn: new Date(),
-      createdBy: 2,
-      meetup: 2,
-      title: req.body.title,
-      body: req.body.body,
-      vote: 0,
-    };
-    if (newQuestion.title && newQuestion.body) {
-      questions.push(newQuestion);
-      return res.status(201).send({
-        status: 201,
-        data: [newQuestion],
+    // eslint-disable-next-line max-len
+    const {
+      title, body,
+    } = req.body;
+
+    const { error } = validateQuest({
+      title, body,
+    });
+    if (error) {
+      res.status(400).json({ error: error.details[0].message });
+    } else {
+      const question = questions.createQwest(req.body);
+      return res.status(201).json({
+        message: 'Your Question Posted Successful',
+        question,
+
       });
     }
-    return res.status(400).send({ error: 'Question not created' });
   }
 
-  static upVote(req, res) {
-    const question = questions.find(x => x.id === parseInt(req.params.id, 10));
-    if (question) {
-      question.votes += 1;
-      return res.status(200).send({
-        status: 200,
-        data: [question],
+  static getSingleQuestion(req, res) {
+    const singleQuestion = questions.getSingleMeetup(req.params.id);
+    if (!singleQuestion) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Question not found',
       });
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'question not found',
+    return res.status(200).json({
+      meetup: singleQuestion,
     });
   }
 
-  static downVote(req, res) {
-    const question = questions.find(x => x.id === parseInt(req.params.id, 10));
-    if (question) {
-      question.votes -= 1;
-      return res.status(200).send({
-        status: 200,
-        data: [question],
+  static upvote(req, res) {
+    const question = questions.findQuest(req.params.id);
+    if (!question) {
+      return res.status(404).json({
+        status: 404,
+        message: 'No question with the specified id',
       });
     }
-    return res.status(404).send({
-      status: 404,
-      error: 'question not found',
+
+    const like = questions.upVote(req.params.id, req.body);
+    return res.status(200).json({
+      message: 'Successful',
+      question: like,
+    });
+  }
+
+  static downvote(req, res) {
+    const question = questions.findQuest(req.params.id);
+    if (!question) {
+      return res.status(404).json({
+        message: 'No question with the specified id',
+      });
+    }
+
+    const dislike = questions.downVote(req.params.id, req.body);
+    return res.status(200).json({
+      message: 'Successful',
+      question: dislike,
     });
   }
 }
