@@ -1,5 +1,6 @@
+import Joi from 'joi';
 import Meetup from '../models/meetup';
-import validation from '../middlewares/validation';
+import validations from '../middlewares/validation';
 
 class MeetupController {
   // eslint-disable-next-line consistent-return
@@ -9,9 +10,11 @@ class MeetupController {
       location, topic, images, tags, happeningOn,
     } = req.body;
 
-    const { error } = validation({
-      location, topic, images, tags, happeningOn,
-    });
+
+    const { error } = Joi.validate({
+      location, images, topic, happeningOn, tags,
+    }, validations.meetupSchema);
+
     if (error) {
       res.status(400).json({ error: error.details[0].message });
     } else {
