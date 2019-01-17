@@ -19,7 +19,6 @@ class QuestionController {
       return res.status(201).json({
         message: 'Your Question Posted Successful',
         question,
-
       });
     }
   }
