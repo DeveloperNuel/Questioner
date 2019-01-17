@@ -21,28 +21,22 @@ const meetupSchema = Joi.object().keys({
     .required(),
   images: Joi.string(),
 
-  topic: Joi.string().alphanum().min(3).max(50)
-    .required(),
-  happeningOn: Joi.date()
-    .required(),
-  tags: Joi.string().alphanum().min(3),
+  topic: Joi.string().min(3).max(50).required(),
+  happeningOn: Joi.date().required(),
+  tags: Joi.array(),
 });
 
 const questionSchema = Joi.object().keys({
   createdBy: Joi.number().integer()
     .required(),
-  meetup: Joi.number().integer()
-    .required(),
-  title: Joi.string().min(5).max(50)
-    .required(),
-  body: Joi.string().min(5).max(120)
-    .required(),
+  meetup: Joi.number().integer().required(),
+  title: Joi.string().min(5).max(50).required(),
+  body: Joi.string().min(5).max(120).required(),
   votes: Joi.number().integer(),
 });
 
 const rsvpSchema = Joi.object().keys({
-  status: Joi.string().min(3).max(5)
-    .required(),
+  status: Joi.string().min(3).max(5).required(),
 });
 
 export default {
