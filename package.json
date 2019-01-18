@@ -6,7 +6,8 @@
   "scripts": {
     "test": "clear && NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1000 --require babel-register {server,server/test/**}/*.spec.js --exit || true",
     "server": "clear && cross-env NODE_ENV=dev nodemon --exec babel-node ./server/app.js",
-    "start": "nodemon --exec babel-node server/app.js"
+    "start": "nodemon --exec babel-node server/app.js",
+    "coverage": "nyc report report=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
