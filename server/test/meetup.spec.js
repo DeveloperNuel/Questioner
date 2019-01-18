@@ -114,8 +114,9 @@ describe('Questioner Server', () => {
         });
     });
   });
+  // Get Meetups Question
   describe('POST /meetups/:id/questions', () => {
-    it('Fetching meetup questions...', () => {
+    it('It should get all meetup questions', () => {
       chai.request(app)
         .get('/api/v1/meetups/3/questions')
         .then((res) => {
@@ -125,11 +126,35 @@ describe('Questioner Server', () => {
         });
     });
   });
+
+  // Get Upcoming
+  describe('GET /meetups/upcoming', () => {
+    it('It should get Upcoming meetup meetups', () => {
+      chai.request(app)
+        .get('/api/v1/meetups/upcoming')
+        .then((res) => {
+          console.log(res.body);
+          expect(res).to.have.status(200);
+          expect(res.body).to.have.property('status').eql(200);
+          expect(res.body).to.be.an('object');
+        });
+    });
+  });
+
   // Delete meetup
   describe('DELETE /meetups/:id', () => {
+    const testData = {
+      id: uuid(),
+      topic: 'Progate Rwanda Meetup',
+      location: 'Kigali',
+      happeningOn: '01/02/2019',
+      images: 'www.images.com',
+      tags: ['Dev', 'Software'],
+    };
     it('should delete a specific meetup', () => {
       chai.request(app)
         .get('/api/v1/meetups/1')
+        .send(testData)
         .then((res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.have.property('message').eql('Meetup Deleted');
