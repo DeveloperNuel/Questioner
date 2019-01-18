@@ -1,8 +1,8 @@
-
 import chaiHttp from 'chai-http';
 import chai, { expect } from 'chai';
 import { describe, it } from 'mocha';
 import app from '../app';
+import users from '../models/user';
 
 chai.use(chaiHttp);
 
@@ -13,8 +13,8 @@ describe('Questioner Server', () => {
       chai.request(app)
         .post('/api/v1/auth/sign-in')
         .send({
-          email: 'egentle05@gmail.com',
-          password: 'emma',
+          email: users.email,
+          password: users.password,
         })
         .then((res) => {
           expect(res).to.have.status(200);

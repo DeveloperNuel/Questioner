@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/Gentle-code/Questioner.svg?branch=develop)](https://travis-ci.org/Gentle-code/Questioner)
+
 [![Coverage Status](https://coveralls.io/repos/github/Gentle-code/Questioner/badge.svg?branch=develop)](https://coveralls.io/github/Gentle-code/Questioner?branch=develop)
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/c4141e25fcf8f552ffee/maintainability)](https://codeclimate.com/github/Gentle-code/Questioner/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c4141e25fcf8f552ffee/test_coverage)](https://codeclimate.com/github/Gentle-code/Questioner/test_coverage)
 # Questioner

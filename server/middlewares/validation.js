@@ -1,101 +1,46 @@
-import isEmpty from 'lodash.isempty';
-import validate from 'validate.js';
+import Joi from 'joi';
 
-export default class Middleware {
-  static createQuestionValidator(req, res, next) {
-    const { meetup, title, body } = req.body;
-    const error = {};
+const userSchema = Joi.object().keys({
+  firstname: Joi.string().alphanum().min(3).max(50)
+    .required(),
+  lastname: Joi.string().alphanum().min(3).max(50)
+    .required(),
+  othername: Joi.string().alphanum().min(3).max(50),
+  phoneNumber: Joi.number().integer().min(12)
+    .required(),
+  email: Joi.string().email({ minDomainAtomas: 2 })
+    .required(),
+  username: Joi.string().alphanum().min(3).max(50)
+    .required(),
+  password: Joi.string().alphanum().min(3).max(50)
+    .required(),
+});
 
-    if (!validate.isInteger(meetup)) {
-      error.meetup = 'Meetup id must be an integer';
-    }
+const meetupSchema = Joi.object().keys({
+  location: Joi.string().alphanum().min(3).max(50)
+    .required(),
+  images: Joi.string(),
 
-    if (!meetup) {
-      error.meetup = 'Meetup id is required';
-    }
+  topic: Joi.string().min(3).max(50).required(),
+  happeningOn: Joi.date().required(),
+  tags: Joi.array(),
+});
 
-    if (!title || (title && validate.isEmpty(title))) {
-      error.title = 'title is required';
-    }
+const questionSchema = Joi.object().keys({
+  createdby: Joi.number().integer().required(),
+  meetup: Joi.number().integer(),
+  title: Joi.string().min(5).max(50).required(),
+  body: Joi.string().min(5).max(120).required(),
+  votes: Joi.number().integer(),
+});
 
-    if (title && (!validate.isString(title))) {
-      error.title = 'title must be a string';
-    }
+const rsvpSchema = Joi.object().keys({
+  status: Joi.string().min(3).max(5).required(),
+});
 
-    if (!body || (body && validate.isEmpty(body))) {
-      error.body = 'question body is required';
-    }
-
-    if (body && !validate.isString(body)) {
-      error.body = 'question body must be a string';
-    }
-
-    if (isEmpty(error)) {
-      return next();
-    }
-
-    return res.status(400).send({
-      status: 400,
-      error,
-    });
-  }
-
-  static createMeetupValidator(req, res, next) {
-    const { topic, location, happeningOn } = req.body;
-    const error = {};
-    if (!topic || (topic && validate.isEmpty(topic))) {
-      error.topic = 'topic is required';
-    }
-
-    if (topic && !validate.isString(topic)) {
-      error.topic = 'topic must be a string';
-    }
-
-    if (!location || (location && validate.isEmpty(location))) {
-      error.location = 'location is required';
-    }
-
-    if (location && !validate.isString(location)) {
-      error.location = 'location must be a string';
-    }
-
-    if (!happeningOn || (happeningOn && validate.isEmpty(happeningOn))) {
-      error.happeningOn = 'meetup date is required';
-    }
-
-    if (isEmpty(error)) {
-      return next();
-    }
-
-    return res.status(400).send({
-      status: 400,
-      error,
-    });
-  }
-
-  static validateRsvp(req, res, next) {
-    const { response } = req.body;
-    if (!response || (response && validate.isEmpty(response))) {
-      return res.status(400).send({
-        status: 400,
-        error: 'response is required',
-      });
-    }
-
-    if (response && !validate.isString(response)) {
-      return res.status(400).send({
-        status: 400,
-        error: 'response must be a string',
-      });
-    }
-
-    if (response.toLowerCase() === 'yes' || response.toLowerCase() === 'no'
-      || response.toLowerCase() === 'maybe') {
-      return next();
-    }
-    return res.status(400).send({
-      status: 400,
-      error: 'response must be either yes, no or maybe',
-    });
-  }
-}
+export default {
+  userSchema,
+  meetupSchema,
+  questionSchema,
+  rsvpSchema,
+};

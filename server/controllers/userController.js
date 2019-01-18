@@ -4,13 +4,12 @@ import User from '../models/user';
 
 class UserController {
   static createUser(req, res) {
-    const id = uuid();
     const registered = new Date();
     const {
       firstname, lastname, email, phoneNumber, username, password,
     } = req.body;
     const newUser = {
-      id,
+      id: uuid(),
       firstname,
       lastname,
       email,
