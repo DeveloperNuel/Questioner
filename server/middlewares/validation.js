@@ -27,9 +27,8 @@ const meetupSchema = Joi.object().keys({
 });
 
 const questionSchema = Joi.object().keys({
-  createdBy: Joi.number().integer()
-    .required(),
-  meetup: Joi.number().integer().required(),
+  createdby: Joi.number().integer().required(),
+  meetup: Joi.number().integer(),
   title: Joi.string().min(5).max(50).required(),
   body: Joi.string().min(5).max(120).required(),
   votes: Joi.number().integer(),
